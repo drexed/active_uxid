@@ -2,17 +2,17 @@
 
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'active_regulation/version'
+require 'active_uxid/version'
 
 Gem::Specification.new do |spec|
-  spec.name = 'active_regulation'
+  spec.name = 'active_uxid'
   spec.version = ActiveRegulation::VERSION
   spec.authors = ['Juan Gomez']
   spec.email = ['j.gomez@drexed.com']
 
-  spec.summary = 'Gem for commonly used record states.'
-  spec.description = 'Manage the states of records by commonly used attributes.'
-  spec.homepage = 'http://drexed.github.io/active_regulation'
+  spec.summary = "Gem for generating lexicographical UXid's."
+  spec.description = 'Generate lexicographical UXids.'
+  spec.homepage = 'http://drexed.github.io/active_uxid'
   spec.license = 'MIT'
 
   spec.files = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'activerecord'
   spec.add_runtime_dependency 'activesupport'
+  spec.add_runtime_dependency 'dry-configurable'
 
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'coveralls'
@@ -29,6 +30,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'sqlite3'
   spec.add_development_dependency 'database_cleaner'
+  spec.add_development_dependency 'generator_spec'
   spec.add_development_dependency 'fasterer'
   spec.add_development_dependency 'reek'
   spec.add_development_dependency 'rubocop'

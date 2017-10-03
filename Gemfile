@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in active_regulation.gemspec
+# Specify your gem's dependencies in active_uxid.gemspec
 gemspec

@@ -1,8 +1,8 @@
 # ActiveRegulation
 
-[![Gem Version](https://badge.fury.io/rb/active_regulation.svg)](http://badge.fury.io/rb/active_regulation)
-[![Build Status](https://travis-ci.org/drexed/active_regulation.svg?branch=master)](https://travis-ci.org/drexed/active_regulation)
-[![Coverage Status](https://coveralls.io/repos/github/drexed/active_regulation/badge.svg?branch=master)](https://coveralls.io/github/drexed/active_regulation?branch=master)
+[![Gem Version](https://badge.fury.io/rb/active_uxid.svg)](http://badge.fury.io/rb/active_uxid)
+[![Build Status](https://travis-ci.org/drexed/active_uxid.svg?branch=master)](https://travis-ci.org/drexed/active_uxid)
+[![Coverage Status](https://coveralls.io/repos/github/drexed/active_uxid/badge.svg?branch=master)](https://coveralls.io/github/drexed/active_uxid?branch=master)
 
 ActiveRegulation is a library for commonly used record states.
 
@@ -11,7 +11,7 @@ ActiveRegulation is a library for commonly used record states.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'active_regulation'
+gem 'active_uxid'
 ```
 
 And then execute:
@@ -20,7 +20,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install active_regulation
+    $ gem install active_uxid
 
 ## Table of Contents
 

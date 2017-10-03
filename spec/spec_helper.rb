@@ -18,6 +18,7 @@ spec_support_path = Pathname.new(File.expand_path('../spec/support', File.dirnam
 spec_tmp_path = Pathname.new(File.expand_path('../spec/lib/generators/tmp', File.dirname(__FILE__)))
 
 ActiveUxid::Settings.configure do |config|
+  config.encoder_type = 'ulid'
   config.encoding_chars = '0123456789abcdefghjkmnpqrstvwxyz'
   config.encoded_length = 26
 end

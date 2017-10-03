@@ -1,10 +1,10 @@
 module ActiveUxid
-  class Generator
+  class Ulid
 
     attr_reader :uxid
 
     def initialize
-      @uxid = random_uxid
+      @uxid = generate_uxid
     end
 
     def self.uxid
@@ -12,7 +12,7 @@ module ActiveUxid
       klass.uxid
     end
 
-    def random_uxid
+    def generate_uxid
       (1..ActiveUxid::Settings.config.encoded_length).reduce('') do |str, num|
         shift = 128 - 5 * num
         str + ActiveUxid::Settings.config.encoding_chars[(uxid_octect >> shift) & 0x1f]

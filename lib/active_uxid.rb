@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-%w[version configuration].each do |file_name|
+%w[version configuration base].each do |file_name|
   require "active_uxid/#{file_name}"
 end
 
-%w[base hash ulid].each_with_index do |file_name, i|
-  require "active_uxid/record/#{file_name}" unless i.zero?
+%w[hash ulid].each do |file_name|
+  require "active_uxid/record/#{file_name}"
   require "active_uxid/#{file_name}"
 end
 

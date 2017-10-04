@@ -1,14 +1,7 @@
 # frozen_string_literal: true
 
 module ActiveUxid
-  class Ulid
-
-    ENCODING_CHARS ||= ActiveUxid.configuration.encoding_chars
-    ENCODING_LENGTH = ActiveUxid.configuration.encoding_length
-
-    def initialize
-      @encoding_length = ActiveUxid.configuration.encoding_length
-    end
+  class Ulid < ActiveUxid::Base
 
     def self.encode
       klass = new
@@ -16,9 +9,9 @@ module ActiveUxid
     end
 
     def uxid_encode
-      (1..@encoding_length).reduce('') do |str, num|
+      (1..encoding_length).reduce('') do |str, num|
         shift = 128 - 5 * num
-        "#{str}#{ENCODING_CHARS[(uxid_octect >> shift) & 0x1f]}"
+        "#{str}#{encoding_chars[(uxid_octect >> shift) & 0x1f]}"
       end
     end
 

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module ActiveUxid
-  class Ulid < ActiveUxid::Base
+  class Ulid
 
     ENCODING_CHARS ||= ActiveUxid.configuration.encoding_chars
     ENCODING_LENGTH ||= ActiveUxid.configuration.encoding_length

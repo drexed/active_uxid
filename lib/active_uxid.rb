@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 %w[hash ulid].each do |file_name|
   require "active_uxid/record/#{file_name}"
 end

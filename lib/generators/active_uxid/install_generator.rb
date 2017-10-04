@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails/generators'
 
 class ActiveUxid::InstallGenerator < Rails::Generators::Base

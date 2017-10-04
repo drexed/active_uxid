@@ -1,4 +1,4 @@
-require 'base64'
+# frozen_string_literal: true
 
 module ActiveUxid
   class Hash < ActiveUxid::Base

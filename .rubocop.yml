@@ -32,8 +32,6 @@ Style/Documentation:
   Enabled: false
 Style/HashSyntax:
   Enabled: false
-Style/FrozenStringLiteralComment:
-  Enabled: false
 Style/NumericLiterals:
   Enabled: false
 Style/RescueModifier:

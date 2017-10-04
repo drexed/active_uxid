@@ -23,29 +23,52 @@ Or install it yourself as:
 
 ## Table of Contents
 
-* [Methods](#methods)
-* [Usage](#usage)
+* [Configuration](#configuration)
 * [Hash](#hash)
 * [Ulid](#ulid)
+* [ActiveRecord](#active_record)
 
-## Methods
+## Configuration
 
-**Modules:**
- * `hash`
- * `ulid`
+`rails generate active_uxid:install` will generate the following file:
+`../config/initalizers/active_uxid.rb`
 
-**Attributes:**
- * `:uxid`
+```ruby
+ActiveUxid::Settings.configure do |config|
+  config.encoder_type = 'ulid'
+  config.encoding_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  config.encoding_length = 26
+  config.encoding_length = 1369136
+end
+```
 
-## Usage
+## Hash
+```ruby
+# Hash ID's are reversible but less performant
+# than ULID
+
+ActiveUxid::Hash.encode(10)         #=> 'q5D8inm0'
+ActiveUxid::Hash.decode('q5D8inm0') #=> 10
+```
+
+## Ulid
+```ruby
+# ULID are secure as they are not reversible
+# They are also more performant than Hash ID's
+
+ActiveUxid::Ulid.encode #=> '1mqfg9qa96s8s5f02o1ucf8lcc'
+```
+
+## ActiveRecord
 ```ruby
 class User < ActiveRecord::Base
-  # Add a uxid attribute to the corresponding table.
+  # Add a uxid binary attribute to the corresponding table.
+  # This will include the proper UXid format from your settings
 
   include ActiveUxid::Record
 end
 
-# Record hash encoder type
+# Hash UXid's type only
 User.find_by_uxid('x123') #=> find record by uxid
 
 user = User.new

@@ -42,10 +42,11 @@ module ActiveUxid
     def uxid_decode_chars(id)
       pos = 0
       num = 0
-      len = id.length - 1
+      len = id.length
+      max = len - 1
 
-      while pos < id.length
-        pow = ENCODING_BASE ** (len - pos)
+      while pos < len
+        pow = ENCODING_BASE ** (max - pos)
         num += ENCODING_CHARS.index(id[pos]) * pow
         pos += 1
       end

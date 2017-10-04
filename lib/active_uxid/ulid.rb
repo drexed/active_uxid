@@ -6,7 +6,9 @@ module ActiveUxid
     ENCODING_CHARS ||= ActiveUxid.configuration.encoding_chars
     ENCODING_LENGTH = ActiveUxid.configuration.encoding_length
 
-    def initialize; end
+    def initialize
+      @encoding_length = ActiveUxid.configuration.encoding_length
+    end
 
     def self.encode
       klass = new
@@ -14,7 +16,7 @@ module ActiveUxid
     end
 
     def uxid_encode
-      (1..ENCODING_LENGTH).reduce('') do |str, num|
+      (1..@encoding_length).reduce('') do |str, num|
         shift = 128 - 5 * num
         "#{str}#{ENCODING_CHARS[(uxid_octect >> shift) & 0x1f]}"
       end

@@ -27,11 +27,11 @@ module ActiveUxid
 
     def uxid_encode_chars(id)
       return '0' if id.zero?
-      return nil if id < 0
+      return nil if id.negative?
 
       str = ''
 
-      while id > 0
+      while id.positive?
         str = "#{ENCODING_CHARS[id % ENCODING_BASE]}#{str}"
         id /= ENCODING_BASE
       end
@@ -46,7 +46,7 @@ module ActiveUxid
       max = len - 1
 
       while pos < len
-        pow = ENCODING_BASE ** (max - pos)
+        pow = ENCODING_BASE**(max - pos)
         num += ENCODING_CHARS.index(id[pos]) * pow
         pos += 1
       end

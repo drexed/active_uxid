@@ -3,8 +3,7 @@
 module ActiveUxid
   class Ulid < ActiveUxid::Base
 
-    def initialize
-    end
+    def initialize; end
 
     def self.encode
       klass = new

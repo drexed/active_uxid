@@ -5,7 +5,7 @@ module ActiveUxid
 
     def initialize(id)
       @id = id
-      super
+      super()
     end
 
     def self.encode(id)

@@ -5,8 +5,9 @@ describe ActiveUxid::Settings do
   after(:all) do
     ActiveUxid::Settings.configure do |config|
       config.encoder_type = 'ulid'
-      config.encoding_chars = '0123456789abcdefghjkmnpqrstvwxyz'
-      config.encoded_length = 26
+      config.encoding_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+      config.encoding_length = 26
+      config.encoding_length = 1369136
     end
   end
 
@@ -29,10 +30,18 @@ describe ActiveUxid::Settings do
 
     it 'to be "19 test"' do
       ActiveUxid::Settings.configure do |config|
-        config.encoded_length = '19 test'
+        config.encoding_length = '19 test'
       end
 
-      expect(ActiveUxid::Settings.config.encoded_length).to eq('19 test')
+      expect(ActiveUxid::Settings.config.encoding_length).to eq('19 test')
+    end
+
+    it 'to be "19 test"' do
+      ActiveUxid::Settings.configure do |config|
+        config.encoding_salt = '19 test'
+      end
+
+      expect(ActiveUxid::Settings.config.encoding_salt).to eq('19 test')
     end
   end
 

@@ -10,8 +10,8 @@ module ActiveUxid
 
     def callback_generate_uxid!
       self.uxid = case ActiveUxid::Settings.config.encoder_type
-                  when 'hash' then ActiveUxid::Hash.uxid
-                  when 'ulid' then ActiveUxid::Ulid.uxid
+                  when 'hash' then ActiveUxid::Hash.encode
+                  when 'ulid' then ActiveUxid::Ulid.encode
                   end
     end
 

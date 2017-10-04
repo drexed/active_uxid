@@ -1,21 +1,18 @@
 module ActiveUxid
-  class Ulid
-
-    attr_reader :uxid
+  class Ulid < ActiveUxid::Base
 
     def initialize
-      @uxid = generate_uxid
     end
 
-    def self.uxid
+    def self.encode
       klass = new
-      klass.uxid
+      klass.uxid_encode
     end
 
-    def generate_uxid
-      (1..ActiveUxid::Settings.config.encoded_length).reduce('') do |str, num|
+    def uxid_encode
+      (1..ENCODING_LENGTH).reduce('') do |str, num|
         shift = 128 - 5 * num
-        str + ActiveUxid::Settings.config.encoding_chars[(uxid_octect >> shift) & 0x1f]
+        str + ENCODING_CHARS[(uxid_octect >> shift) & 0x1f]
       end
     end
 

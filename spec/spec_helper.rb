@@ -19,8 +19,9 @@ spec_tmp_path = Pathname.new(File.expand_path('../spec/lib/generators/tmp', File
 
 ActiveUxid::Settings.configure do |config|
   config.encoder_type = 'ulid'
-  config.encoding_chars = '0123456789abcdefghjkmnpqrstvwxyz'
-  config.encoded_length = 26
+  config.encoding_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  config.encoding_length = 26
+  config.encoding_length = 1369136
 end
 
 ActiveRecord::Base.configurations = YAML::load_file(spec_support_path.join('config/database.yml'))

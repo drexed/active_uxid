@@ -1,4 +1,4 @@
-%w[version settings hash ulid record].each do |file_name|
+%w[version settings base hash ulid record].each do |file_name|
   require "active_uxid/#{file_name}"
 end
 

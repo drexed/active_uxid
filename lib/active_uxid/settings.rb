@@ -5,8 +5,9 @@ module ActiveUxid
     extend Dry::Configurable
 
     setting :encoder_type, 'ulid'
-    setting :encoding_chars, '0123456789abcdefghjkmnpqrstvwxyz'
-    setting :encoded_length, 26
+    setting :encoding_chars, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    setting :encoding_length, 26
+    setting :encoding_salt, 1369136
 
   end
 end

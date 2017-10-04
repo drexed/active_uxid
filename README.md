@@ -35,7 +35,6 @@ Or install it yourself as:
 
 ```ruby
 ActiveUxid::Settings.configure do |config|
-  config.encoder_type = 'ulid'
   config.encoding_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
   config.encoding_length = 26
   config.encoding_salt = 1369136
@@ -63,9 +62,10 @@ ActiveUxid::Ulid.encode #=> '1mqfg9qa96s8s5f02o1ucf8lcc'
 ```ruby
 class User < ActiveRecord::Base
   # Add a uxid binary attribute to the corresponding table.
-  # This will include the proper UXid format from your settings
 
-  include ActiveUxid::Record
+  include ActiveUxid::Record::Hash
+  # Or
+  include ActiveUxid::Record::Ulid
 end
 
 # Hash UXid's type only

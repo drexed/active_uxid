@@ -3,10 +3,9 @@
 module ActiveUxid
   class Hash < ActiveUxid::Base
 
-    ENCODING_BASE ||= ENCODING_CHARS.length
-
     def initialize(id)
       @id = id
+      super
     end
 
     def self.encode(id)
@@ -20,11 +19,11 @@ module ActiveUxid
     end
 
     def encode_uxid
-      uxid_encode_chars((@id + ENCODING_SALT) << ENCODING_LENGTH)
+      uxid_encode_chars((@id + encoding_salt) << encoding_length)
     end
 
     def decode_uxid
-      (uxid_decode_chars(@id) >> ENCODING_LENGTH) - ENCODING_SALT
+      (uxid_decode_chars(@id) >> encoding_length) - encoding_salt
     end
 
     def uxid_encode_chars(id)
@@ -34,8 +33,8 @@ module ActiveUxid
       str = ''
 
       while id.positive?
-        str = "#{ENCODING_CHARS[id % ENCODING_BASE]}#{str}"
-        id /= ENCODING_BASE
+        str = "#{encoding_chars[id % encoding_base]}#{str}"
+        id /= encoding_base
       end
 
       str
@@ -48,8 +47,8 @@ module ActiveUxid
       max = len - 1
 
       while pos < len
-        pow = ENCODING_BASE**(max - pos)
-        num += ENCODING_CHARS.index(id[pos]) * pow
+        pow = encoding_base ** (max - pos)
+        num += encoding_chars.index(id[pos]) * pow
         pos += 1
       end
 

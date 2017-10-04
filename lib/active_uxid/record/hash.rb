@@ -7,6 +7,11 @@ module ActiveUxid
 
       included do
         after_create :callback_generate_uxid!, if: proc { respond_to?(:uxid) }
+
+        def self.find_by_uxid(uxid)
+          iden = ActiveUxid::Hash.decode(uxid)
+          find(iden)
+        end
       end
 
       def uxid_to_id

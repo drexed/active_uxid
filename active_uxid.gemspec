@@ -12,8 +12,8 @@ Gem::Specification.new do |spec|
   spec.authors = ['Juan Gomez']
   spec.email = ['j.gomez@drexed.com']
 
-  spec.summary = "Gem for generating lexicographical UXid's."
-  spec.description = 'Generate lexicographical UXids.'
+  spec.summary = "Gem for generating obfuscated UXid's."
+  spec.description = 'Generate obfuscated UXids.'
   spec.homepage = 'http://drexed.github.io/active_uxid'
   spec.license = 'MIT'
 

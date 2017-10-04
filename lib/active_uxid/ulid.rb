@@ -4,7 +4,7 @@ module ActiveUxid
   class Ulid
 
     ENCODING_CHARS ||= ActiveUxid.configuration.encoding_chars
-    ENCODING_LENGTH ||= ActiveUxid.configuration.encoding_length
+    ENCODING_LENGTH = ActiveUxid.configuration.encoding_length
 
     def initialize; end
 

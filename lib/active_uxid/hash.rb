@@ -47,7 +47,7 @@ module ActiveUxid
       max = len - 1
 
       while pos < len
-        pow = encoding_base ** (max - pos)
+        pow = encoding_base**(max - pos)
         num += encoding_chars.index(id[pos]) * pow
         pos += 1
       end

@@ -7,7 +7,8 @@ module ActiveUxid
       @config = ActiveUxid.configuration
     end
 
-    %w[encoding_chars encoding_length encoding_salt].each do |setting|
+    ActiveUxid.configuration.instance_variables.each do |setting|
+      setting = setting.to_s.tr(':@', '')
       define_method(setting) { @config.send(setting) }
     end
 

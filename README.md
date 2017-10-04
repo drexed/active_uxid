@@ -1,10 +1,9 @@
-# ActiveRegulation
+# ActiveUxid
 
 [![Gem Version](https://badge.fury.io/rb/active_uxid.svg)](http://badge.fury.io/rb/active_uxid)
 [![Build Status](https://travis-ci.org/drexed/active_uxid.svg?branch=master)](https://travis-ci.org/drexed/active_uxid)
-[![Coverage Status](https://coveralls.io/repos/github/drexed/active_uxid/badge.svg?branch=master)](https://coveralls.io/github/drexed/active_uxid?branch=master)
 
-ActiveRegulation is a library for commonly used record states.
+ActiveUxid is a library for generating obfuscated UXid's.
 
 ## Installation
 
@@ -26,51 +25,31 @@ Or install it yourself as:
 
 * [Methods](#methods)
 * [Usage](#usage)
+* [Hash](#hash)
+* [Ulid](#ulid)
 
 ## Methods
 
 **Modules:**
- * `activation`
- * `containment`
- * `expiration`
- * `quarantine`
- * `suspension`
- * `visibility`
+ * `hash`
+ * `ulid`
 
 **Attributes:**
- * `:inactivated_at`
- * `:contained_at`
- * `:expires_at`
- * `:invisible_at`
- * `:quarantined_at`
- * `:suspended_at`
-
-```ruby
-class User < ActiveRecord::Base
-
-  # Add one of the datetime attributes
-  # above to the corresponding table.
-
-  include ActiveRegulation::Containment
-
-end
-```
+ * `:uxid`
 
 ## Usage
 ```ruby
-user.active?       #=> true
-user.inactive?     #=> false
+class User < ActiveRecord::Base
+  # Add a uxid attribute to the corresponding table.
 
-user.inactive!
-user.active?       #=> false
+  include ActiveUxid::Record
+end
 
-user.active!
-user.active?       #=> true
+# Record hash encoder type
+User.find_by_uxid('x123') #=> find record by uxid
 
-user.to_activation #=> 'Active'
-
-User.active        #=> retrieves all active records
-User.inactive      #=> retrieves all inactive records
+user = User.new
+user.uxid_to_id          #=> decodes the records uxid to id
 ```
 
 ## Contributing

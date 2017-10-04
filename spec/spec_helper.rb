@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'coveralls'
-Coveralls.wear!
-
 require 'active_record'
 require 'active_support'
 require 'active_uxid'

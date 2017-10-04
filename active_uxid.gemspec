@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.email = ['j.gomez@drexed.com']
 
   spec.summary = "Gem for generating obfuscated UXid's."
-  spec.description = 'Generate obfuscated UXids.'
+  spec.description = "Generate obfuscated UXid's."
   spec.homepage = 'http://drexed.github.io/active_uxid'
   spec.license = 'MIT'
 
@@ -27,7 +27,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'dry-configurable'
 
   spec.add_development_dependency 'bundler'
-  spec.add_development_dependency 'coveralls'
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'sqlite3'

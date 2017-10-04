@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-%w[version settings].each do |file_name|
+%w[version configuration].each do |file_name|
   require "active_uxid/#{file_name}"
 end
 

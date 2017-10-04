@@ -34,7 +34,7 @@ Or install it yourself as:
 `../config/initalizers/active_uxid.rb`
 
 ```ruby
-ActiveUxid::Settings.configure do |config|
+ActiveUxid.configure do |config|
   config.encoding_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
   config.encoding_length = 26
   config.encoding_salt = 1369136

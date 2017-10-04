@@ -11,6 +11,7 @@ module ActiveUxid
     end
 
     def uxid_encode
+      # Convert nums into constants
       (1..ENCODING_LENGTH).reduce('') do |str, num|
         shift = 128 - 5 * num
         str + ENCODING_CHARS[(uxid_octect >> shift) & 0x1f]
@@ -18,6 +19,7 @@ module ActiveUxid
     end
 
     def uxid_bytes
+      # TODO: Dynamic random bytes
       "#{uxid_unixtime_48bit}#{SecureRandom.random_bytes(10)}"
     end
 

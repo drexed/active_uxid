@@ -3,6 +3,8 @@
 module ActiveUxid
   class Hash < ActiveUxid::Base
 
+    ENCODING_BASE ||= ENCODING_CHARS.length
+
     def initialize(id)
       @id = id
     end

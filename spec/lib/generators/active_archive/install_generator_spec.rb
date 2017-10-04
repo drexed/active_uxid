@@ -10,7 +10,7 @@ describe ActiveUxid::InstallGenerator, type: :generator do
     run_generator
   end
 
-  it 'to be true' do
+  it 'to be true and expected file' do
     sample_path = 'spec/lib/generators/tmp/config/initializers/active_uxid.rb'
 
     expect_file = File.read('lib/generators/active_uxid/templates/install.rb')

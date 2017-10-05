@@ -3,11 +3,7 @@
 require 'spec_helper'
 
 describe ActiveUxid::Record::Ulid do
-  let(:klass) do
-    class User < ActiveRecord::Base
-      include ActiveUxid::Record::Ulid
-    end
-  end
+  let(:klass) { User.include(ActiveUxid::Record::Ulid) }
   let(:user) { klass.create! }
 
   describe '.callback_generate_uxid!' do

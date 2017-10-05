@@ -3,11 +3,7 @@
 require 'spec_helper'
 
 describe ActiveUxid::Record::Hash do
-  let(:klass) do
-    class User < ActiveRecord::Base
-      include ActiveUxid::Record::Hash
-    end
-  end
+  let(:klass) { User.include(ActiveUxid::Record::Hash) }
   let(:user) { klass.create! }
 
   describe '.find_by_uxid' do

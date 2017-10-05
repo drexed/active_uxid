@@ -10,8 +10,11 @@ spec_tmp_path = Pathname.new(File.expand_path('../spec/lib/generators/tmp', File
 ActiveRecord::Base.configurations = YAML::load_file(spec_support_path.join('config/database.yml'))
 ActiveRecord::Base.establish_connection(:test)
 
-spec_support_path = spec_support_path.join('db/schema.rb')
-load(spec_support_path) if File.exist?(spec_support_path)
+load(spec_support_path.join('db/schema.rb'))
+
+Dir.glob(spec_support_path.join('models/*.rb'))
+   .each { |f| autoload(File.basename(f).chomp('.rb').camelcase.intern, f) }
+   .each { |f| require(f) }
 
 RSpec.configure do |config|
   config.before(:suite) do

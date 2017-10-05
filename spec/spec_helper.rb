@@ -1,23 +1,14 @@
 # frozen_string_literal: true
 
-require 'active_record'
-require 'active_support'
-require 'active_uxid'
-require 'pathname'
-require 'generator_spec'
-require 'database_cleaner'
-
-module Rails
-  def self.env
-    'test'
-  end
+%w[active_record active_uxid pathname generator_spec database_cleaner].each do |file_name|
+  require file_name
 end
 
 spec_support_path = Pathname.new(File.expand_path('../spec/support', File.dirname(__FILE__)))
 spec_tmp_path = Pathname.new(File.expand_path('../spec/lib/generators/tmp', File.dirname(__FILE__)))
 
 ActiveRecord::Base.configurations = YAML::load_file(spec_support_path.join('config/database.yml'))
-ActiveRecord::Base.establish_connection
+ActiveRecord::Base.establish_connection(:test)
 
 spec_support_path = spec_support_path.join('db/schema.rb')
 load(spec_support_path) if File.exist?(spec_support_path)

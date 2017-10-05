@@ -3,10 +3,18 @@
 module ActiveUxid
   class Base
 
-    ENCODING_BASE ||= ActiveUxid::Settings.config.encoding_chars.length
-    ENCODING_CHARS ||= ActiveUxid::Settings.config.encoding_chars
-    ENCODING_LENGTH ||= ActiveUxid::Settings.config.encoding_length
-    ENCODING_SALT ||= ActiveUxid::Settings.config.encoding_salt
+    def initialize
+      @config = ActiveUxid.configuration
+    end
+
+    ActiveUxid.configuration.instance_variables.each do |setting|
+      setting = setting.to_s.tr(':@', '')
+      define_method(setting) { @config.send(setting) }
+    end
+
+    def encoding_base
+      encoding_chars.length
+    end
 
   end
 end

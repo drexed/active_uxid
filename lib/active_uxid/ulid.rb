@@ -3,17 +3,15 @@
 module ActiveUxid
   class Ulid < ActiveUxid::Base
 
-    def initialize; end
-
     def self.encode
       klass = new
       klass.uxid_encode
     end
 
     def uxid_encode
-      (1..ENCODING_LENGTH).reduce('') do |str, num|
+      (1..encoding_length).reduce('') do |str, num|
         shift = 128 - 5 * num
-        str + ENCODING_CHARS[(uxid_octect >> shift) & 0x1f]
+        "#{str}#{encoding_chars[(uxid_octect >> shift) & 0x1f]}"
       end
     end
 

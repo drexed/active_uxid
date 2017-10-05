@@ -8,7 +8,7 @@ module ActiveUxid
     def initialize
       @encoding_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
       @encoding_length = 26
-      @encoding_salt = 1369136
+      @encoding_salt = 1_369_136
     end
 
   end

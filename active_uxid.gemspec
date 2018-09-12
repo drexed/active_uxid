@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# coding: utf-8
-
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'active_uxid/version'
@@ -26,12 +24,12 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'activesupport'
 
   spec.add_development_dependency 'bundler'
-  spec.add_development_dependency 'rake'
-  spec.add_development_dependency 'rspec'
-  spec.add_development_dependency 'sqlite3'
   spec.add_development_dependency 'database_cleaner'
-  spec.add_development_dependency 'generator_spec'
   spec.add_development_dependency 'fasterer'
+  spec.add_development_dependency 'generator_spec'
+  spec.add_development_dependency 'rake'
   spec.add_development_dependency 'reek'
+  spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'rubocop'
+  spec.add_development_dependency 'sqlite3'
 end

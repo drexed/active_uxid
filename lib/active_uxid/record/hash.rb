@@ -16,6 +16,7 @@ module ActiveUxid
 
       def uxid_to_id
         return unless respond_to?(:uxid)
+
         ActiveUxid::Hash.decode(uxid)
       end
 

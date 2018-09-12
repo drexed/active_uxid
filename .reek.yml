@@ -1,0 +1,14 @@
+---
+detectors:
+  Attribute:
+    enabled: false
+  FeatureEnvy:
+    enabled: false
+  IrresponsibleModule:
+    enabled: false
+  ManualDispatch:
+    enabled: false
+  TooManyStatements:
+    max_statements: 10
+  UtilityFunction:
+    enabled: false

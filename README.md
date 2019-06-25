@@ -1,5 +1,7 @@
 # ActiveUxid
 
+**NOTE** ActiveUxid has been deprecated in favor of [Lite::Uxid](https://github.com/drexed/lite-uxid). Its a drop-in replacement, so please make the switch as soon as possible.
+
 [![Gem Version](https://badge.fury.io/rb/active_uxid.svg)](http://badge.fury.io/rb/active_uxid)
 [![Build Status](https://travis-ci.org/drexed/active_uxid.svg?branch=master)](https://travis-ci.org/drexed/active_uxid)
 
